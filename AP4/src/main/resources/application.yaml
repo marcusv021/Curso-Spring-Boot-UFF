@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ap4
+
+  sql:
+    init:
+      mode: always
+
+  datasource:
+    url: jdbc:hsqldb:hsql://localhost:9001/mydb
+    username: sa
+    password:

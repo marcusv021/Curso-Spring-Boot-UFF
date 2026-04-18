@@ -1,0 +1,32 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<h1>E-Mail</h1>
+<p>Prezado <strong th:text="${nome_da_pessoa}">André</strong></p>
+<p>Segue os documentos solicitados.</p>
+<ul>
+    <li th:each="d :${documentos}" >
+        <span th:text="${d.nome}">a.txt</span>
+        <span>-</span>
+        <span th:text="|${d.tamanho} Kb|">1Kb</span>
+    </li>
+
+    <li th:if="false"><span>b.txt</span><span>-</span><span>2Kb</span></li>
+    <li th:if="false"><span>c.txt</span><span>-</span><span>3Kb</span></li>
+    <li th:if="false"><span>d.txt</span><span>-</span><span>4Kb</span></li>
+</ul>
+
+<p> Link para o unitario <a href="../unitario/get.html" th:href="@{/aviso_arquivo/unitario}">aqui</a>.</p>
+<p>Atenciosamente,</p>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edição de Post</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<section class="container mt-4">
+
+    <form method="POST" action="#" th:action="@{/post}">
+
+        <input type="hidden" name="id" th:value="${post.id}" />
+
+        <h2 class="form-label">Mensagem</h2>
+        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" th:text="${post.mensagem}"></textarea>
+
+        <h2 class="mt-4">Tags</h2>
+        <label class="form-label" for="tag[0]">Tag 1:</label>
+        <input class="form-control" type="text" id="tag[0]" name="tags[0].nome" th:value="${post.tags != null and post.tags.size() > 0 ? post.tags[0].nome : ''}">
+
+        <label class="form-label mt-2" for="tag[1]">Tag 2:</label>
+        <input class="form-control" type="text" id="tag[1]" name="tags[1].nome" th:value="${post.tags != null and post.tags.size() > 1 ? post.tags[1].nome : ''}">
+
+        <label class="form-label mt-2" for="tag[2]">Tag 3:</label>
+        <input class="form-control" type="text" id="tag[2]" name="tags[2].nome" th:value="${post.tags != null and post.tags.size() > 2 ? post.tags[2].nome : ''}">
+
+        <label class="form-label mt-2" for="tag[3]">Tag 4:</label>
+        <input class="form-control" type="text" id="tag[3]" name="tags[3].nome" th:value="${post.tags != null and post.tags.size() > 3 ? post.tags[3].nome : ''}">
+
+        <br>
+        <input class="btn btn-primary" type="submit" value="Enviar">
+        <a class="btn btn-secondary" th:href="@{/post}">Cancelar</a>
+    </form>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
